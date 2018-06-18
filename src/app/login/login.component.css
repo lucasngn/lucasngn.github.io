@@ -1,0 +1,14 @@
+.center-login {
+  max-width: 250px;
+  width: 60%;
+  height: 50%;
+  margin: 100px auto;
+  padding: 10px
+}
+
+.guide {
+  text-align: center;
+  margin-top: 140px;
+  font-size: 23px;
+  font-family: 'Indie Flower', cursive, "Times New Roman", Times;
+}

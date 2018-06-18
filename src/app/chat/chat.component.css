@@ -1,0 +1,29 @@
+.message {
+  background: #3f3f3f;
+  padding: 10px;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.inspire {
+  padding: 10px;
+  max-width: 330px;
+  margin-top: 10px
+}
+.message.self {
+  opacity: 0.5;
+}
+
+.center-chat {
+  width: 100%;
+  margin: 0px auto;
+  padding: 10px;
+  max-width: 400px;
+  height: auto;
+}
+
+.chatbox {
+  position: fixed;
+  bottom: 0;
+}

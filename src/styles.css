@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+.success-snackbar {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.error-snackbar {
+    background-color: rgb(3, 3, 3);
+    color: white;
+}
