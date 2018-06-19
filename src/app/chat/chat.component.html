@@ -1,4 +1,4 @@
-<div class="center-chat" [hidden]="notification.showInspiration">
+<div class="center-chat fadein" [hidden]="notification.showInspiration">
   <div class="container">
     <div class="row" *ngFor="let chat of chats$ | async" [class.justify-content-end]="chat.sender==dbService.user">
       <div *ngIf="chat.type!=='inspire'" class="message" [class.self]="chat.sender==dbService.user">
@@ -9,18 +9,19 @@
       </div>
     </div>
     <div>
-      
+
     </div>
   </div>
-  <div  class="chatbox">
-    <mat-form-field style="width: 300px; margin-top: 20px">
+  <div class="chatbox">
+    <mat-form-field style="margin-top: 20px; max-width: 300px;" [style.width.px]="textBoxWidth">
       <input matInput [(ngModel)]="text" (keyup.enter)="send()">
     </mat-form-field>
     <mat-icon style="cursor: pointer;" (click)="send('')">send</mat-icon>
     <mat-icon style="cursor: pointer;" (click)="send('inspire')">lock</mat-icon>
+    <!-- <mat-icon style="cursor: pointer;" (click)="logout()">exit_to_app</mat-icon> -->
     <br>
+    <button mat-raised-button (click)="logout()" style="bottom: 5px">Logout</button>
   </div>
-  <!-- <button mat-raised-button (click)="logout()">Logout</button> -->
 </div>
 
 <app-inspiration [hidden]="!notification.showInspiration" [text]="inspireText"></app-inspiration>

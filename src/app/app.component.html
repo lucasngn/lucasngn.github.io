@@ -1,6 +1,7 @@
-<app-login [hidden]="dbService.isAuth"></app-login>
+<app-login *ngIf="dbService.showChat === 'false'"></app-login>
 
-<app-chat [hidden]="!dbService.isAuth"></app-chat>
+<app-chat *ngIf="dbService.showChat === 'true'"></app-chat>
+
 <!-- 
 <div>
   <router-outlet></router-outlet>

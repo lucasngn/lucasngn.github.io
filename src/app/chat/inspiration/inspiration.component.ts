@@ -9,10 +9,14 @@ import { NotificationService } from '../../../service/notification.service';
 export class InspirationComponent implements OnInit {
     @Input() text: string;
     constructor(public notification: NotificationService) { }
-
+    fadeClass = 'fadein';
     ngOnInit(): void { }
 
-    unspire () {
-        this.notification.showInspiration = false;
+    unspire() {
+        this.fadeClass = 'fadeout';
+        setTimeout(() => {
+            this.notification.showInspiration = false;
+            this.fadeClass = 'fadein';
+        }, );
     }
 }

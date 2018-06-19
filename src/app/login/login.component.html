@@ -1,10 +1,10 @@
 <div class="center-login">
   <mat-form-field>
-    <input matInput placeholder="Email" [(ngModel)]="email" autofocus>
+    <input matInput type="email" placeholder="Email" [(ngModel)]="email" autofocus>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()">
+    <input matInput type="password" placeholder="Password" [(ngModel)]="password" (keyup.enter)="login()">
   </mat-form-field>
   <br>
   <button type="button" class="btn btn-light" (click)="login()">Login</button>
@@ -12,7 +12,7 @@
   <br>
   <button type="button" class="btn btn-dark" (click)="signup()">Signup</button>
 
-  <div class="guide">
-    <p>Live simple</p>
+  <div (click)="changeQuote()" class="guide" style="cursor: pointer;">
+    <p>{{quote}}</p>
   </div>
 </div>

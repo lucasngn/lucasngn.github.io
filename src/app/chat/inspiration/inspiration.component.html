@@ -1,3 +1,8 @@
-<div (click)="unspire()" class="center">
-  <p>{{text}}</p>
+<div class="container" class="center" (click)="unspire()">
+  <div class="row">
+    <div class="col">
+      <p  [ngClass]="fadeClass">{{text}}</p>
+    </div>
+
+  </div>
 </div>

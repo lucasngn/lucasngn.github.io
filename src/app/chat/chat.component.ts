@@ -1,6 +1,6 @@
 import { DbService } from './../../service/db.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { NotificationService } from '../../service/notification.service';
@@ -10,14 +10,22 @@ import { NotificationService } from '../../service/notification.service';
     templateUrl: './chat.component.html',
     styleUrls: ['./chat.component.css']
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
     chats$;
     text = '';
     sendText;
-    inspireText = 'somethingg';
-    constructor(db: AngularFireDatabase, public dbService: DbService, public notification: NotificationService) {
-        this.chats$ = db.list('myChat', ref => ref.limitToLast(6)).valueChanges();
-        this.sendText = db.list('myChat');
+    inspireText = '';
+    textBoxWidth = 300;
+    numberOfConv = 6;
+    constructor(public db: AngularFireDatabase, public dbService: DbService, public notification: NotificationService) {
+    }
+
+    ngOnInit() {
+        console.log(window.innerHeight, window.innerWidth);
+        this.textBoxWidth = window.innerWidth - 24 * 2 - 25;
+        this.numberOfConv = window.innerHeight < 750 ? 6 : 10;
+        this.sendText = this.db.list('myChat');
+        this.chats$ = this.db.list('myChat', ref => ref.limitToLast(this.numberOfConv)).valueChanges();
     }
 
     send(type = '') {
@@ -34,8 +42,8 @@ export class ChatComponent {
     logout() {
         this.dbService.logout()
             .then(res => {
-                this.notification.success('Log out successfully');
-                this.dbService.isAuth = false;
+                this.notification.success('Come back soon');
+                this.dbService.showChat = 'false';
             });
     }
 

@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
 export class DbService {
+    public showChat = 'init';
     chats$;
     text = '';
     sendText;
@@ -28,6 +29,6 @@ export class DbService {
     }
 
     isAuthenticated() {
-        console.log(this.afAuth.authState);
+        return (this.afAuth.authState);
     }
 }
